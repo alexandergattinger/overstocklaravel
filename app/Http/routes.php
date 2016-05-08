@@ -18,21 +18,16 @@ Route::get('/', function () {
     return view('tasks');
 });
 
-Route::get('hello', function (){
-  echo "ellloooo";
+
+Route::get('customer/{id}', function($id){
+  $customer = App\Customer::find($id);
+  echo "hello my name is ".$customer->name;
 });
 
-
-/**
- * Add A New Task
- */
-Route::post('/task', function (Request $request) {
-    //
-});
-
-/**
- * Delete An Existing Task
- */
-Route::delete('/task/{id}', function ($id) {
-    //
+Route::get('orders', function(){
+  $orders = App\Order::all();
+  foreach ($orders as $order) {
+    echo $order->name."<br/>";
+    echo $order->id."<br/>";
+  }
 });
