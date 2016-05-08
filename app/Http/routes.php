@@ -10,7 +10,29 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+use App\Task;
+use Illuminate\Http\Request;
+
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tasks');
+});
+
+Route::get('hello', function (){
+  echo "ellloooo";
+});
+
+
+/**
+ * Add A New Task
+ */
+Route::post('/task', function (Request $request) {
+    //
+});
+
+/**
+ * Delete An Existing Task
+ */
+Route::delete('/task/{id}', function ($id) {
+    //
 });
